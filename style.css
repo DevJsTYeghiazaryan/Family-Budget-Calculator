@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+*{
+    font-family: 'Tilt Warp', cursive;
+}
+
+h1{
+    text-align: center;
+}
+
+body{
+    background-color: #fff;
+}
+
+.addMemberForm{
+    display: flex;
+    justify-content: center;
+}
+
+#familyTable{
+    text-align: center;
+    padding: 7px;
+    margin-left: 6px;
+}
+
+.tablebody{
+    display: flex;
+    justify-content: center;
+}
+
+#familyTable thead tr th{
+    margin-left: 6px;
+    font-family: 'Montserrat', sans-serif!important;
+}
+
+button{
+    border-radius: 8px;
+    background-color: #fff;
+    border-color: #4CAF50;
+    transition-duration: 0.4s;
+}
+
+button:hover{
+    background-color: #4CAF50; 
+    color: white;
+}
+
+.addotherpayments{
+    display: flex;
+    justify-content: center;
+}
+
+.addotherpayments  input {
+    display: block;
+    margin-top: 7px;
+}
+
+.addotherpayments label{
+    display: inline-block;
+}
+.addotherpayments button{
+    margin-top: 7px;
+}
+
+.addMemberForm input,button{
+    margin-top: 6px;
+}
+
+.globalOutput{
+    text-align: center;
+}
+

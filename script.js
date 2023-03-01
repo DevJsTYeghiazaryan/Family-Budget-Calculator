@@ -6,7 +6,17 @@ function addFamilyMember() {
   const budget = parseInt(document.getElementById('budget').value);
   const spending = parseInt(document.getElementById('spending').value);
 
-  
+  for(let i = 0; i < familyMembers.length + 1; i++){
+    if(isNaN(budget && spending)){
+      alert("Enter the Inputs!");
+      return 0;
+    }
+  }
+
+  var totalBudget = 0;
+  for(let j = 0; i < familyMembers.length; j++){
+      totalBudget += familyMembers[j].budget
+  }
 
 
   const member = {
@@ -16,7 +26,6 @@ function addFamilyMember() {
 
   };
 
-  updateDisplay();
 
   familyMembers.push(member);
 
@@ -37,12 +46,7 @@ function addFamilyMember() {
   document.getElementById('spending').value = '';
 }
 
-function updateDisplay(){
-  var totalBudget = 0;
-  for(var i = 0; i < familyMembers.length; i++){
-      totalBudget += familyMembers[i].budget
-  }
-}
+
 
 function calculateTotal() {
   // Get the input values
@@ -50,10 +54,16 @@ function calculateTotal() {
   const educationPayment = parseInt(document.getElementById("education-payment").value) || 0;
   const otherPayment = parseInt(document.getElementById("other-payment").value) || 0;
 
+  
   // Calculate the total
   let eduPayment = educationPayment / 12;
   const total = utilityBills + eduPayment + otherPayment;
   // Update the total display
-  document.getElementById("total").innerHTML = `Total: $${total}`;
+  if(total == 0){
+    alert("Enter the spends!");
+    return 0;
+  }
+
+  document.getElementById("total").innerHTML = `Total: $${Math.floor(total)}`;
   document.getElementById("budgetlast").innerHTML = `Total: $${totalBudget}`;
 }

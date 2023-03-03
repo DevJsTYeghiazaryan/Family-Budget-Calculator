@@ -1,25 +1,16 @@
 let familyMembers = [];
 
 function addFamilyMember() {
-  
   const memberName = document.getElementById('member').value;
   const budget = parseInt(document.getElementById('budget').value);
   const spending = parseInt(document.getElementById('spending').value);
-
-  for(let i = 0; i < familyMembers.length + 1; i++){
-    if(isNaN(budget && spending)){
-      alert("Enter the Inputs!");
-      return 0;
-    }
-  }
-
 
   const member = {
     name: memberName,
     budget: budget,
     spending: spending,
-
   };
+
 
 
   familyMembers.push(member);
@@ -59,6 +50,24 @@ function calculateTotal() {
     return 0;
   }
 
-  document.getElementById("total").innerHTML = `Total: $${Math.floor(total)}`;
-  document.getElementById("budgetlast").innerHTML = `Total: $${totalBudget}`;
+  let budgetSum = 0;
+  for (let i = 0; i < familyMembers.length; i++) {
+    budgetSum += familyMembers[i].budget;
+  }
+
+  let spendsSum = 0;
+  for (let j = 0; j < familyMembers.length; j++) {
+    spendsSum += familyMembers[j].spending;
+  }
+
+  let lastSum = 0;
+  for (let k = 0; k < familyMembers.length; k++) {
+    lastSum = familyMembers[k].budget - familyMembers[k].spending
+  }
+
+
+
+  document.getElementById("budgetlast").innerHTML = `Members Budget: $${budgetSum}`;
+  document.getElementById("total").innerHTML = `Total Family Spends: $${Math.floor(total)}`;
+  document.getElementById("members-spends").innerHTML = `Members' spends: $${spendsSum}`;
 }

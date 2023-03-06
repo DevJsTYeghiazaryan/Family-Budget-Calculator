@@ -9,6 +9,7 @@ function addFamilyMember() {
     name: memberName,
     budget: budget,
     spending: spending,
+    rembudget: budget - spending
   };
 
 
@@ -65,9 +66,15 @@ function calculateTotal() {
     lastSum = familyMembers[k].budget - familyMembers[k].spending
   }
 
+  let remSum = 0;
+  for (let m = 0; m < familyMembers.length; m++) {
+    remSum += familyMembers[m].rembudget
+  }
+
 
 
   document.getElementById("budgetlast").innerHTML = `Members Budget: $${budgetSum}`;
   document.getElementById("total").innerHTML = `Total Family Spends: $${Math.floor(total)}`;
   document.getElementById("members-spends").innerHTML = `Members' spends: $${spendsSum}`;
+  document.getElementById("mem-remain").innerHTML = `Budget: $${remSum}`
 }
